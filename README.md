@@ -233,38 +233,6 @@ The new output files are numbered by the latest version. Output files from the f
 
 Another re-run will create a full set with _2, etc
 
-
-
-## Multiplatform installation for original pipeline
-
-These modules require **Python 3.5+**, and have been tested with Python 3.5, 3.6, and 3.7.
-
-Three of the modules (`extract_from_npx`, `median_subtraction`, and `kilosort_helper`) have non-Python dependencies that will need to be installed prior to use.
-
-We recommend using [pipenv](https://github.com/pypa/pipenv) to run these modules. From the `ecephys_spike_sorting` top-level directory, run the following commands from a terminal: 
-
-### Windows
-
-```shell
-    $ pip install --user pipenv
-    $ set PIPENV_VENV_IN_PROJECT=1
-    $ pipenv install
-    $ pipenv shell
-    (.venv) $ pip install .
-```
-**Note:** This will work in the standard Command Prompt, but the [cmder console emulator](https://cmder.net/) has better compatibility with Python virtual environments.
-
-You can now edit one of the processing scripts found in `ecephys_spike_sorting\scripts` and run via:
-
-```shell
-    (.venv) $ python ecephys_spike_sorting\scripts\batch_processing.py
-```
-See the scripts [README](ecephys_spike_sorting/scripts/README.md) file for more information on their usage.
-
-To leave the pipenv virtual environment, simply type:
-
-```shell
-    (.venv) $ exit
 ```
 
 ## Level of Support
