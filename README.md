@@ -99,8 +99,7 @@ Build the environment -- it will use the Pipfile located in this directory, and 
 ```shell
     $ set PIPENV_VENV_IN_PROJECT=1
     $ pipenv install
-    $ pipenv shell
-    (.venv) $ pip uninstall setuptools
+    $ pipenv shell                             #this activates the VENV
     (.venv) $ pip install setuptools==59.8.0
     (.venv) $ pip install .
 ```
