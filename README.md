@@ -106,13 +106,11 @@ Build the environment -- it will use the Pipfile located in this directory, and 
 ```
 ### Set up to run MATLAB from Python
 
-The python version and MATLAB version need to be compatible. For Python 3.8, this requires MATLAB 2020b or later. The code has been tested only with MATLAB 2021b.
+IMPORTANT: Before running this step make sure that you have all appropriate CUDA compilers (likely 11.0) and Visual Stuido Community installed with appropriate C++ Compilers. After successful installation, open MATLAB and run the mexCuda script and confirm that the GPU is being utilized from MATLAB. 
 
-Install MATLAB 2021b ñ side by side installations of MATLAB are fine, so there is no need to delete earlier versions, and running code specific to an earlier version should be possible.
+The python version and MATLAB version need to be compatible. For Python 3.8, this requires MATLAB 2020b or later. The code has been tested with MATLAB 2021a and 2021b.
 
-Open MATLAB 2021b, and enter the command gpuDevice(). You make get a message that there are no GPU devices with compatible drivers. Later versions of MATLAB also require more recent drivers for the GPU card ñ MATLAB 2021b requires version 10.1 or later of the Nvidia drivers. 
-
-If you get that message, quit MATLAB. Update the drivers for the GPU card -- this can be done with the Device Manager in Windows 10, and will also happen automatically if you update the CUDA Toolkit. The pipeline has been tested with CUDA Toolkit 11, which is compatible with GPUs back to the NVIDIA Maxwell architecture. After updating, restart MATLAB and enter gpuDevice() again to make sure it is recognized.
+Install MATLAB 2021a/b ‚Äì side by side installations of MATLAB are fine, so there is no need to delete earlier versions, and running code specific to an earlier version should be possible.
 
 The MATLAB engine for python must be installed in the local instance of python run by the virtual environment. Open the command prompt as administrator, navigate to the ecephys directory, and enter:
 
@@ -145,7 +143,7 @@ NOTE: The pipeline is currently compatible only with CatGT 2.5; a 3.0 compatible
 
 ### Edit parameters for your system and runs
 
-Parameters are set in two files. Values that are constant across runsólike paths to code, parameters for sorting, etc ñ are set in **create_input_json.py**. Parameters that need to be set per run (run names, which triggers and probes to processÖ) are set in script files.
+Parameters are set in two files. Values that are constant across runs‚Äîlike paths to code, parameters for sorting, etc ‚Äì are set in **create_input_json.py**. Parameters that need to be set per run (run names, which triggers and probes to process‚Ä¶) are set in script files.
 
 In **create_input_json.py**, be sure to set these paths and parameters for your system:
 
@@ -160,7 +158,7 @@ In **create_input_json.py**, be sure to set these paths and parameters for your 
 
 >>> Note: The kilosort_output_temp folder contains the kilosort residual file and also temporary copies of the config and master file. With kilosort 2.5, this "temporary" file--which has been drift corrected--may be used for manual curation in phy. If you want it to be kept available, set the parameter ks_copy_fproc=1; then a copy will be made with the kilosort output and the params.py adjusted automatically.
 
-Other ìmostly constantî parameters in **create_input_json.py**:
+Other ‚Äúmostly constant‚Äù parameters in **create_input_json.py**:
 
 - Most Kilosort2 parameters. 
 - kilosort post processing params 
@@ -242,53 +240,7 @@ These modules require **Python 3.5+**, and have been tested with Python 3.5, 3.6
 
 Three of the modules (`extract_from_npx`, `median_subtraction`, and `kilosort_helper`) have non-Python dependencies that will need to be installed prior to use.
 
-We recommend using [pipenv](https://github.com/pypa/pipenv) to run these modules. From the `ecephys_spike_sorting` top-level directory, run the following commands from a terminal:
-
-### Linux
-
-```shell
-    $ pip install --user pipenv
-    $ export PIPENV_VENV_IN_PROJECT=1
-    $ pipenv install
-    $ pipenv shell
-    (ecephys_spike_sorting) $ pip install .
-```
-You can now edit one of the processing scripts found in `ecephys_spike_sorting/scripts` and run via:
-
-```shell
-    (ecephys_spike_sorting) $ python ecephys_spike_sorting/scripts/batch_processing.py
-```
-See the scripts [README](ecephys_spike_sorting/scripts/README.md) file for more information on their usage.
-
-To leave the pipenv virtual environment, simply type:
-
-```shell
-    (ecephys_spike_sorting) $ exit
-```
-
-### macOS
-
-If you don't have it already, install [homebrew](https://brew.sh/). Then, type:
-
-```shell
-    $ brew install pipenv
-    $ export PIPENV_VENV_IN_PROJECT=1
-    $ pipenv install
-    $ pipenv shell
-    (ecephys_spike_sorting) $ pip install .
-```
-You can now edit one of the processing scripts found in `ecephys_spike_sorting/scripts` and run via:
-
-```shell
-    (ecephys_spike_sorting) $ python ecephys_spike_sorting/scripts/batch_processing.py
-```
-See the scripts [README](ecephys_spike_sorting/scripts/README.md) file for more information on their usage.
-
-To leave the pipenv virtual environment, simply type:
-
-```shell
-    (ecephys_spike_sorting) $ exit
-```
+We recommend using [pipenv](https://github.com/pypa/pipenv) to run these modules. From the `ecephys_spike_sorting` top-level directory, run the following commands from a terminal: 
 
 ### Windows
 
@@ -324,4 +276,4 @@ This code is an important part of the internal Allen Institute code base and we 
 See [Allen Institute Terms of Use](https://alleninstitute.org/legal/terms-use/)
 
 
-¬© 2019 Allen Institute for Brain Science
+√Ç¬© 2019 Allen Institute for Brain Science
