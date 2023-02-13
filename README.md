@@ -73,7 +73,7 @@ C:\Users\labadmin\AppData\Local\Programs\Python\Python38\Scripts
 
 If you have another version of Python installed, this version can be installed side by side. To use these installation instructions, version 3.8 will need to have priority in the environment PATH variable.
 
-Open the Windows command prompt as administrator, and install pipenv:
+Open the Windows command prompt (NOT Anaconda prompt/powershell), and install pipenv:
 
 ```shell
     $ pip install --user pipenv
