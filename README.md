@@ -106,7 +106,7 @@ Build the environment -- it will use the Pipfile located in this directory, and 
 ```
 ### Set up to run MATLAB from Python
 
-IMPORTANT: Before running this step make sure that you have all appropriate CUDA compilers (likely 11.0) and Visual Stuido Community installed with appropriate C++ Compilers. After successful installation, open MATLAB and run the mexCuda script and confirm that the GPU is being utilized from MATLAB. 
+IMPORTANT: Before running this step make sure that you have all appropriate CUDA compilers (likely 11.0) and Visual Stuido Community installed with appropriate C++ Compilers. After successful installation, open MATLAB and run the mexGPUall.m script in the Kilosort repo and confirm that the GPU is being utilized from MATLAB. 
 
 The python version and MATLAB version need to be compatible. For Python 3.8, this requires MATLAB 2020b or later. The code has been tested with MATLAB 2021a and 2021b.
 
@@ -168,6 +168,8 @@ Read through the parameter list for **create_input_json.py** to see which parame
 
 
 ### Running scripts
+
+IMPORTANT: BEFORE activating your VENV navigate to the ecephys directory.
 
 The scripts generate a command line to run specific modules using parameters stored in a json file, which is created by the script. Create a directory to hold the json files, e.g. 
 
