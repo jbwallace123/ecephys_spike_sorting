@@ -105,7 +105,7 @@ Build the environment -- it will use the Pipfile located in this directory, and 
 ```
 ### Set up to run MATLAB from Python
 
-IMPORTANT: Before running this step make sure that you have all appropriate CUDA compilers (likely 11.0) and Visual Stuido Community installed with appropriate C++ Compilers. After successful installation, open MATLAB and run the mexGPUall.m script in the Kilosort repo and confirm that the GPU is being utilized from MATLAB. 
+### IMPORTANT: Before running this step make sure that you have all appropriate CUDA compilers (likely 11.0) and Visual Stuido Community installed with appropriate C++ Compilers. After successful installation, open MATLAB and run the mexGPUall.m script in the Kilosort repo and confirm that the GPU is being utilized from MATLAB. 
 
 The python version and MATLAB version need to be compatible. For Python 3.8, this requires MATLAB 2020b or later. The code has been tested with MATLAB 2021a and 2021b.
 
@@ -135,7 +135,7 @@ After completing the install, close the command window and reopen as a normal us
 
 [CatGT](http://billkarsh.github.io/SpikeGLX/#catgt), [TPrime](http://billkarsh.github.io/SpikeGLX/#tprime), and [C_Waves](http://billkarsh.github.io/SpikeGLX/#post-processing-tools) are each available on the SpikeGLX download page. To install, simply download each zipped folder and extract to a convenient location, see the instructions [here](http://billkarsh.github.io/SpikeGLX/#command-line-tool-installation). The paths to these executables must then be set in **create_input_json.py**. 
 
-NOTE: The pipeline is currently compatible only with CatGT 2.5; a 3.0 compatible version will be released soon.
+NOTE: The pipeline is currently compatible only with CatGT 2.5
 
 
 ## Usage
@@ -168,7 +168,7 @@ Read through the parameter list for **create_input_json.py** to see which parame
 
 ### Running scripts
 
-IMPORTANT: BEFORE activating your VENV navigate to the ecephys directory.
+### IMPORTANT: BEFORE activating your VENV navigate to the ecephys directory.
 
 The scripts generate a command line to run specific modules using parameters stored in a json file, which is created by the script. Create a directory to hold the json files, e.g. 
 
@@ -179,8 +179,10 @@ There are two example scripts for running with SpikeGLX data:
 **sglx_multi_run_pipeline.py**
 Meant to process multiple SpikeGLX runs, especially with multiple probes. The threshold for kilosort and the refractory period for the quality metrics are set per probe by specifying a brain region parameter for each probe. A first pass through all the probes in a run generates json parameters files for CatGt and sorting+post processing, and a second loop actually calls the processing. Finally runs TPrime. See comments in the script file for parameter details.
 
+This is also the code to run to process a *raw* file from CatGT --> post-processing QC metrics. 
+
 **sglx_filelist_pipeline.py**
-Meant for running sorting/postprocessing modules on collections of preprocessed data, independent of the standard SpikeGLX run structure.
+Meant for running sorting/postprocessing modules on collections of *preprocessed data*, independent of the standard SpikeGLX run structure.
 
 For either script, edit to set the destination for the json_files, and the location of the input run files. Edit the list of modules to include those you want to run. For the full pipeline script, you also need to set the CatGT and TPrime parameters.
 
